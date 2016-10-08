@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link
+	href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+	th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"
+	rel="stylesheet" media="screen" />
+
+<script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+	th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+	
+	<script src="../js/cartForm.js"></script>
+
+<link href="../../static/css/guru.css" th:href="@{css/guru.css}"
+	rel="stylesheet" media="screen" />
+<link href="../static/css/products.css" th:href="@{/css/products.css}" rel="stylesheet" media="screen" />
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" media="screen" />
+
+</head>
+<body>
+
+	<div class="container">
+		<div th:fragment="header">
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="#" th:href="@{/}">Home</a>
+						<ul class="nav navbar-nav">
+							<li><a href="#" th:href="@{/categories}">Categories</a></li>
+							<li><a href="#" th:href="@{/products}">Products</a></li>
+							<li><a href="#" th:href="@{/Hardware}">Hardware</a></li>
+							<li><a href="#" th:href="@{/Software}">Software</a></li>
+							<li><a href="#" th:href="@{/chart}">My Chart</a></li>
+						</ul>
+
+					</div>
+				</div>
+			</nav>
+
+
+			<div class="col-lg-3 col-md-3">
+				<div class="tree">
+					<ul>
+						<li><span><i class="icon-folder-open"></i> Hardware</span> <a
+							href="#" th:href="@{/Hardware/products}">Go</a>
+							<ul>
+								<li><span><i class="icon-leaf"></i> Monitor</span> <a
+									href="#" th:href="@{/Monitor/products}">Go</a></li>
+								<li><span><i class="icon-leaf"></i> Printer</span> <a
+									href="#" th:href="@{/Printer/products}">Go</a></li>
+							</ul></li>
+
+						<li><span><i class="icon-folder-open"></i> Software</span> <a
+							href="#" th:href="@{/Software/products}">Go</a>
+							<ul>
+								<li><span><i class="icon-leaf"></i> Antivirus</span> <a
+									href="#" th:href="@{/Antivirus/products}">Go</a></li>
+							</ul></li>
+
+
+						<li><span><i class="icon-folder-open"></i> Movies</span> <a
+							href="#" th:href="@{/Movies/products}">Go</a>
+							<ul>
+								<li><span><i class="icon-leaf"></i> Animation</span> <a
+									href="#" th:href="@{/Animation/products}">Go</a></li>
+								<li><span><i class="icon-leaf"></i> Science Fiction</span>
+									<a href="#" th:href="@{/Science Fiction/products}">Go</a></li>
+							</ul></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+
+
+
+
+	</div>
+
+
+</body>
+</html>

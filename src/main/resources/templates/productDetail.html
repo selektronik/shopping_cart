@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<meta charset="UTF-8"/>
+<title>Categories by Selectronic</title>
+
+ <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/ngstorage/0.3.6/ngStorage.min.js"></script>
+
+
+<script>						
+																			
+													
+													var storageService = angular.module('storageService', []);  
+										            storageService.factory('getLocalStorage', function () {                  
+										                var productList = {};  
+										                return {  
+										                    list: productList,  
+										                    updateProducts: function (ProductsArr) {  
+										                      
+										                        productList = ProductsArr;  
+										                         
+										                    },  
+										                    getProducts: function () {  
+										                        //Get data from Local Storage  
+										                        productList = angular.fromJson(localStorage.getItem("products"));                         
+										                        return productList ? productList : [];  
+										                    }  
+										                };  
+										  
+										            }); 
+										            
+										            $scope.addProduct = function () {    
+										                $scope.products.push({ 'productid': $scope.productid, 'productprice': $scope.productprice});    
+										                getLocalStorage.updateProducts($scope.products);    
+										                $scope.productprice = '';   										                
+										                $scope.count = $scope.products.length;    
+										            };    
+													
+
+												});
+							</script>
+
+
+
+
+</head>
+
+<body>
+	<!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+
+	<div class="container">
+
+
+		<h2>Product Details</h2>
+		<div>
+			<div class="product col-md-3 service-image-left">
+
+				<div class="col-lg-3 col-md-3 col-sm-6">
+					<center>
+						<img th:src="@{'/images/products/' + ${product.imageName} }" />
+					</center>
+				</div>
+			</div>
+			<form class="form-horizontal" th:object="${product}"
+				th:action="@{/product}" method="get"></form>
+			
+			<div class="container service1-items col-sm-2 col-md-2 pull-left">
+				<center>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Product Name:</label>
+							<div class="col-sm-10">
+								<p class="form-control-static" th:text="${product.name}">Product Name</p>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Price:</label>
+							<div class="col-sm-10">
+								<p class="form-control-static" th:text="${product.price}">Price</p>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Image Url:</label>
+							<div class="col-sm-10">
+								<p class="form-control-static" th:text="${product.imageName}">url....</p>
+							</div>
+						</div>
+						<body ng-app="storageService">
+							<div ng-controller="getLocalStorage" class="col-md-6 col-sm-6">
+								<button ng-click="addProduct()" class="btn btn-success right">Add
+									To Cart</button>
+								<button ng-click="load()" class="btn btn-success right">"data"</button>
+							</div>
+
+						</body>
+
+
+
+
+					</form>
+				</center>
+
+
+			</div>
+			
+
+		</div>
+
+	</div>
+	
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<meta charset="UTF-8"/>
+<title>Categories by Selectronic</title>
+
+ <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+
+</head>
+<body>
+
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+
+<div class="col-lg-10 col-md-9">
+    
+    
+    <table class="table table-bordered col-lg-8 col-md-6">
+					<thead>
+						<tr>
+							<th>id</th>
+							<th>parentId</th>
+							<th>name</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="category : ${categoryList}">
+							<td th:text="${category.id}"></td>
+							<td th:text="${category.parentId}"></td>
+							<td th:text="${category.name}"></td>
+						</tr>
+					</tbody>
+					
+					
+					<tbody>
+						<tr th:each="product : ${productList}">
+							<td th:text="${product.id}"></td>
+							<td th:text="${product.name}"></td>
+						</tr>
+					</tbody>
+				</table>
+			
+    
+</div>
+
+
+
+</body>
+</html>
